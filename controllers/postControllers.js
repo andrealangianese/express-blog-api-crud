@@ -51,6 +51,10 @@ function destroy(req, res){
 
     //rimuovo valorePost dai post 
     valoriPosts.splice(valoriPosts.indexOf(postId), 1);
+
+    //forzo status 204 secondo condizioni di rest
+
+    res.sendStatus(204)
 };
 
 //rendo importabili da altri componenti queste rotte 
