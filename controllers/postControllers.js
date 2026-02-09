@@ -20,6 +20,13 @@ function show(req, res) {
     //confronto il valore di id
 
     const post = valoriPosts.find(p => p.id === idPosts)
+
+    if (post === undefined){
+        res.status(404)
+
+        res.json("il post non esiste")
+    }
+
     
     res.json(post);
 };
@@ -49,12 +56,20 @@ function destroy(req, res){
 
     const postId = valoriPosts.find(post => post.id === id)
 
+    if (postId === undefined){
+
+        //se non uso return non interrompo la funzione quindi non vedrò l'errore 404
+
+        return res.status(404)
+    }
+
     //rimuovo valorePost dai post 
     valoriPosts.splice(valoriPosts.indexOf(postId), 1);
 
     //forzo status 204 secondo condizioni di rest
 
     res.sendStatus(204)
+
 };
 
 //rendo importabili da altri componenti queste rotte 
