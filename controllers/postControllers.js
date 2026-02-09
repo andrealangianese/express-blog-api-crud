@@ -26,7 +26,7 @@ function show(req, res) {
 
 // store
 function store(req, res) {
-    res.send('Creazione nuovi posts');
+    res.send('Creazione nuovi postssss');
 };
 
 // update
@@ -41,7 +41,16 @@ function modify(req, res) {
 
 // destroy
 function destroy(req, res){
-    res.send('Eliminazione dei posts ' + req.params.id);
+
+    //trasformo id in numero
+    const id = parseInt(req.params.id)
+    
+    //confronto id con post
+
+    const postId = valoriPosts.find(post => post.id === id)
+
+    //rimuovo valorePost dai post 
+    valoriPosts.splice(valoriPosts.indexOf(postId), 1);
 };
 
 //rendo importabili da altri componenti queste rotte 
