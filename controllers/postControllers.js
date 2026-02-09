@@ -6,7 +6,7 @@ function index(req, res) {
 };
 
 // show
-router.get('/:id', function (req, res) {
+function show(req, res) {
 
     //var per salvare id
 
@@ -17,28 +17,28 @@ router.get('/:id', function (req, res) {
     const post = valoriPosts.find(p => p.id === idPosts)
     
     res.json(post);
-});
+};
 
 // store
-router.post('/', function (req, res) {
+function store(req, res) {
     res.send('Creazione nuovi posts');
-});
+};
 
 // update
-router.put('/:id', function (req, res) {
+function update(req, res) {
     res.send('Modifica integrale dei posts ' + req.params.id);
-});
+};
 
 // modify
-router.patch('/:id', function (req, res) {
+function modify(req, res) {
     res.send('Modifica parziale dei posts ' + req.params.id);
-});
+};
 
 // destroy
-router.delete('/:id', (req, res) => {
+function destroy(req, res){
     res.send('Eliminazione dei posts ' + req.params.id);
-});
+};
 
 //rendo importabili da altri componenti queste rotte 
 
-module.exports = router
+module.exports = {index , store, update, modify , destroy, show}
