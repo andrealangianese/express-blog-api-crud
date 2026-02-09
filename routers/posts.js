@@ -13,43 +13,22 @@ const postController = require('../controllers/postControllers')
 //creo  rotte crud
 
 // index
-router.get('/', function (req, res) {
-    res.json(valoriPosts)
-});
+router.get('/', postController.index);
 
 // show
-router.get('/:id', function (req, res) {
-
-    //var per salvare id
-
-    const idPosts = parseInt(req.params.id)
-
-    //confronto il valore di id
-
-    const post = valoriPosts.find(p => p.id === idPosts)
-    
-    res.json(post);
-});
+router.get('/:id', postController.show);
 
 // store
-router.post('/', function (req, res) {
-    res.send('Creazione nuovi posts');
-});
+router.post('/', postController.store);
 
 // update
-router.put('/:id', function (req, res) {
-    res.send('Modifica integrale dei posts ' + req.params.id);
-});
+router.put('/:id', postController.update);
 
 // modify
-router.patch('/:id', function (req, res) {
-    res.send('Modifica parziale dei posts ' + req.params.id);
-});
+router.patch('/:id', postController.modify);
 
 // destroy
-router.delete('/:id', (req, res) => {
-    res.send('Eliminazione dei posts ' + req.params.id);
-});
+router.delete('/:id', postController.destroy)
 
 //rendo importabili da altri componenti queste rotte 
 
