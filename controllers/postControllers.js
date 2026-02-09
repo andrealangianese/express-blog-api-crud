@@ -1,7 +1,12 @@
+//importo valori posts
+
+const valoriPosts = require('./../posts')
+
 //creo  rotte crud
 
 // index
 function index(req, res) {
+
     res.json(valoriPosts)
 };
 

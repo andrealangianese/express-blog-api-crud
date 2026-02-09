@@ -6,9 +6,9 @@ const express= require("express");
 
 const router = express.Router();
 
-//importo valori posts
+//importo il controller dei post
 
-const valoriPosts = require('./../posts')
+const postController = require('../controllers/postControllers')
 
 //creo  rotte crud
 
