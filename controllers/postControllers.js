@@ -81,6 +81,13 @@ function update(req, res) {
 
     const postUp = valoriPosts.find(post => post.id === id)
 
+    if (postId === undefined){
+
+        //se non uso return non interrompo la funzione quindi non vedrò l'errore 404
+
+        return res.status(404)
+    }
+
     //aggiorno post
     postUp.title = req.body.title;
     postUp.content = req.body.content;
