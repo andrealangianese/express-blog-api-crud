@@ -6,8 +6,20 @@ const valoriPosts = require('./../posts')
 
 // index
 function index(req, res) {
+    // confronto, all'inizio avranno lo stesso valore
 
-    res.json(valoriPosts)
+    let postFiltrati = valoriPosts
+
+    if(req.query.tag){
+        postFiltrati = valoriPosts.filter(
+            post => post.tags.includes(req.query.tag)
+        )
+    }
+
+    res.json({
+        count: postFiltrati.length,
+        posts: postFiltrati
+    })
 };
 
 // show
