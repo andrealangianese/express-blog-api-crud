@@ -104,7 +104,29 @@ function update(req, res) {
 
 // modify
 function modify(req, res) {
-    res.send('Modifica parziale dei posts ' + req.params.id);
+    //trasformo id in numero
+    const id = parseInt(req.params.id)
+    
+    //confronto id con post
+
+    const postMod = valoriPosts.find(post => post.id === id)
+
+    if (postMod === undefined){
+
+        //se non uso return non interrompo la funzione quindi non vedrò l'errore 404
+
+        return res.status(404)
+    }
+
+    //se ci sono contencontenti aggiungo col ternario
+
+    req.body.title ? postMod.title =req.body.title : postMod.title = postMod.title
+    req.body.content ? postMod.content =req.body.content : postMod.content = postMod.content
+    req.body.image ? postMod.image =req.body.image : postMod.image = postMod.image
+    req.body.tags ? postMod.tags =req.body.tags : postMod.tags = postMod.tags
+
+
+    res.json(postMod)
 };
 
 // destroy
