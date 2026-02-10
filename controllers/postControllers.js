@@ -45,7 +45,20 @@ function show(req, res) {
 
 // store
 function store(req, res) {
-    res.send('Creazione nuovi postssss');
+    
+    //creazione del nuovo id da inserire
+    const idUpdate = valoriPosts[valoriPosts.length - 1].id +1;
+
+    //creo un nuovo post per il blog
+    const newPost = {
+        id : idUpdate,
+        title : req.body.title,
+        image : req.body.image,
+        content :req.body.content,
+        tags : req.body.tags
+    }
+
+    
 };
 
 // update
