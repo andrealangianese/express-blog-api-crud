@@ -58,7 +58,17 @@ function store(req, res) {
         tags : req.body.tags
     }
 
+    //aggiungo newPost al blog
+
+    valoriPosts.push(newPost);
+
+    //stampo in console per ulteriore verifica
+
+    console.log(valoriPosts);
     
+    //ritorno lo status corretto e il nuovopost
+    res.status(201);
+    res.json(newPost)
 };
 
 // update
