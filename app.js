@@ -12,6 +12,9 @@ const routerPosts = require('./routers/posts')
 // attivazione della cartella public per uso file statici
 app.use(express.static('public'));
 
+// registro il body-parser per "application/json", mi servirà per modificare il body
+app.use(express.json());
+
 //chiamata
 
 app.get("/", (req, res) => {
