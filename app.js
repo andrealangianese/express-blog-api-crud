@@ -7,7 +7,10 @@ const port = 3000
 //importo il router dei post salvandolo in una var
 
 const routerPosts = require('./routers/posts');
+
+//importo i middleware
 const errorsHandler = require("./middlewares/errorsHandler");
+const notFound = require("./middlewares/notFound");
 
 
 // attivazione della cartella public per uso file statici
@@ -29,6 +32,10 @@ app.use('/posts' ,routerPosts)
 //registro middleware dopo le rotte l'errore 500
 
 app.use(errorsHandler)
+
+//registro middleware per rotta inesistente
+
+app.use(notFound)
 
 
 
