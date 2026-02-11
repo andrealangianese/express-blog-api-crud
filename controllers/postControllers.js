@@ -111,6 +111,10 @@ function modify(req, res) {
 
     const postMod = valoriPosts.find(post => post.id === id)
 
+    //imposto errore per vedere se fnziona 
+
+    throw new Error('Errore nel test del middleware')
+
     if (postMod === undefined){
 
         //se non uso return non interrompo la funzione quindi non vedrò l'errore 404
